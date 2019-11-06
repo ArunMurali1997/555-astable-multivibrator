@@ -15,3 +15,22 @@ Soon the capacitor voltage will be less than 2/3 Vcc and output of both comparat
 So the discharging of capacitor continuous.
 When the capacitor voltage will become less than 1/3 Vcc, the output SETs since the output of lower comparator is HIGH and of higher comparator is LOW and the capacitor starts charging again.
 This process continuous and a rectangular wave will be obtained at the output.
+# Design
+Capacitor Charges through Ra and Rb.
+Thigh = 0.693(Ra + Rb)C
+Capacitor Discharges through Rb
+
+Tlow = 0.693RbC
+Output Frequency = 1/(Tlow + Thigh) = 1.44/((Ra + 2Rb) * C)
+Duty Cycle = Thigh/(Thigh + Tlow)
+Where Thigh and Tlow are the time period of HIGH and LOW of the output of 555.
+
+From this we can find that Duty Cycle less than or equal to 50% cannot be obtained. There are two ways to obtain this.
+
+Inverting the output
+Using a Diode Parallel to resistor Rb
+
+# Using diode parallel to Rb
+
+In this method we will connect a diode parallel to resistor Rb as shown dotted in the first circuit diagram above. Thus the charging current of capacitor will bypass the resistor Rb. Thus Thigh = 0.693RaC
+Thus a Duty Cycle less than or equal to 50% can easily obtained.
